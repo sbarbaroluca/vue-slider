@@ -18,15 +18,28 @@
 
     <div class="container">
       <div class="prev">
-        <i class="fas fa-chevron-left"></i>
-      </div>
-      <div class="images">
-        <img src="https://images.unsplash.com/photo-1620473607785-c12643923a30?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="city">
-      </div>
-      <div class="next">
-        <i class="fas fa-chevron-right"></i>
+        <i class="fas fa-chevron-left" @click="prevImage"></i>
       </div>
 
+      <div class="images">
+        <img :src="images[imageIndex]" alt="city">
+      </div>
+
+      <div class="next">
+        <i class="fas fa-chevron-right" @click="nextImage"></i>
+      </div>
+      
+      <div class="nav">
+        <!--
+          <i class="fas fa-circle active"></i>
+          <i class="fas fa-circle"></i>
+          <i class="fas fa-circle"></i>
+          <i class="fas fa-circle"></i>
+          <i class="fas fa-circle"></i>
+          -->
+        <i v-for="(image, index) in images"
+         :class="(index == imageIndex) ? 'active' : ''" class="fas fa-circle"></i>
+      </div>
     </div>
 
   </div>
